@@ -8,7 +8,11 @@ router.get('/', function(req, res) {
 
 router.get("/feed",function(req,res)
 {
-  res.render("feed");
+  userModel.find().then(function(allusers)
+  {
+    res.render("feed",{allusers});
+  });
+  // res.render("feed"); 
 })
 
 router.post("/create",function(req,res)
@@ -21,8 +25,27 @@ router.post("/create",function(req,res)
     }
   ).then(function(createdusers)
   {
-    res.send(createdusers);
+    res.redirect("/feed");
   })
+})
+
+router.get("/users",function(req,res)
+{
+  userModel.find()
+  .then(function(allusers)
+  {
+    res.send(allusers);
+  })
+})
+
+
+router.get("/delete/:id",function(req,res)
+{
+  userModel.findOneAndDelete({_id : req.params.id})
+  .then(function()
+  {
+    res.redirect("/users");
+  });
 })
 
 module.exports = router;
