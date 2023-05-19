@@ -6,7 +6,8 @@ var userSchema = mongoose.Schema(
   {
     email : String,
     fullname : String,
-    profileimage : String
+    profileimage : String,
+    // likes : Number,
   }
 );
 
