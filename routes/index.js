@@ -25,7 +25,7 @@ router.post("/create",function(req,res)
     }
   ).then(function(createdusers)
   {
-    res.redirect("/feed");
+    res.redirect("/");
   })
 })
 
@@ -48,16 +48,6 @@ router.get("/delete/:id",function(req,res)
   });
 })
 
-// router.get("/like/:id",function(req,res)
-// {
-//   userModel.findOne({_id: req.params.id}).then(function(user)
-//   {
-//     user.likes++;
-//     user.save().then(function(saveduser)
-//     {
-//       res.redirect("back");
-//     })
-//   })
-// })
+
 
 module.exports = router;
