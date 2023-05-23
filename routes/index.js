@@ -6,14 +6,6 @@ router.get('/', function(req, res) {
   res.render('index');
 });
 
-router.get("/feed",function(req,res)
-{
-  userModel.find().then(function(allusers)
-  {
-    res.render("feed",{allusers});
-  });
-  // res.render("feed"); 
-})
 
 router.post("/create",function(req,res)
 {
@@ -25,7 +17,7 @@ router.post("/create",function(req,res)
     }
   ).then(function(createdusers)
   {
-    res.redirect("/");
+    res.redirect("/feed");
   })
 })
 
@@ -38,7 +30,14 @@ router.get("/users",function(req,res)
   })
 })
 
-
+router.get('/feed',function(req,res)
+{
+  userModel.find()
+  .then(function(allusers)
+  {
+    res.render('feed',{allusers})
+  })
+})
 router.get("/delete/:id",function(req,res)
 {
   userModel.findOneAndDelete({_id : req.params.id})
