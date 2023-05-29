@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/");
+mongoose.connect("mongodb://127.0.0.1:27017/mongo");
 
 var userSchema = mongoose.Schema(
   {
@@ -9,7 +9,7 @@ var userSchema = mongoose.Schema(
     profileimage : String,
     likes : {
      type : Number,
-     defualt : 0,
+     defualt : 0
     }
   }
 );

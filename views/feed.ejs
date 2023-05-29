@@ -59,7 +59,8 @@
           <div class="card-body">
             <h5 class="card-title"><%=user.fullname%></h5>
             <p class="card-text"> <%= user.email%></p>
-            <a href="#" class="btn btn-primary">Like Profile.</a>
+            <small> liked by <%=user.likes%> people.</small>
+            <a href="/like/<%=user.id%>" class="btn btn-primary">Like Profile.</a>
           </div>
         </div>
       <%})%>

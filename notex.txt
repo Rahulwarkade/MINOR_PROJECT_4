@@ -248,3 +248,47 @@ NDBMS - Nosql,mongodb
 cluster-chunck of data in db
 model/collaction : chunck of data in cluster
 Schema : chunck of data in model
+
+
+           PASSPORT JS 
+
+AUTHENTICATION - user ko check karna ki vo sahi user hai ya nahi
+AUTHORIZATION - user ko shirf wahi access mile jiske liye vo allowd ho.
+
+module for passport js
+   passport 
+   passport-local 
+   passport-local-mongoose
+   passport-session
+   mongoose
+
+PASSPORT : saara authentication and authorization ka main engine passport hi hai. passport is everything needed for authentication and authorization accept strategy.
+
+strategy = passport-local, auth 
+passport-local = login with username and password
+auth = login with google,facebook,bing
+
+PASSPORT-LOCAL : passport shirf main engine hota hai par wo authenticate karne ke liye kya use karega (strategy) uske likey hamne pass kiya hai passport-local, taaki passport user ko authenticate kare on the basis of username and password.
+
+
+
+PASSPORT-LOCAL-MONGOOSE : passport ko chalne ke liye kuchh extra cheejo ki jarurat hoti hai jaise ki serialize user,deserialize user and register method and few more things, wo sab humein deta plm
+
+encription is done by serializedUser method
+decription is done by deserializedUser method
+
+serializedUser,deserializedUser and register all of them are present in PASSPORT-LOCAL-MONGOOSE.
+
+EXPRESS-SESSION : kyoki jab bhi url change hota hai to ek nahi request jaati hai to wo jo nayi request hai wo nahi jaanti ke aap loggedin ho ya nahi, is wajah se har page par login karna padta hai, aisa nna karna pade isle hum us request mein extra details bhejte hai ki hum loggedin hai ya nahi and satth hi saath hum kon hai, matlab ki hummara username.
+
+cookee hajaking
+
+MONGOOSE : for connecting the database.
+
+      
+second CLASS
+
+   npm i passport passport-local passport-local-mongoose express-session.
+   in app.js from line number 15 we have to start writing the code.
+
+   inside the app.js serializeUser written users indicates the usersFile of routes folder 

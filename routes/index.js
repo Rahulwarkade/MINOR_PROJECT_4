@@ -13,7 +13,7 @@ router.post("/create",function(req,res)
     {
       email : req.body.email,
       fullname : req.body.fullname,
-      profileimage : req.body.profileimage
+      profileimage : req.body.profileimage,
     }
   ).then(function(createdusers)
   {
@@ -48,5 +48,15 @@ router.get("/delete/:id",function(req,res)
 })
 
 
+router.get("/like/:id",function(req,res){
+  userModel.findOne({_id : req.params.id})
+  .then(function(user){
+    user.likes++;
+
+    user.save().then(function(){
+      res.redirect('/feed');
+    })
+  })
+})
 
 module.exports = router;
