@@ -259,7 +259,7 @@ module for passport js
    passport 
    passport-local 
    passport-local-mongoose
-   passport-session
+   express-session
    mongoose
 
 PASSPORT : saara authentication and authorization ka main engine passport hi hai. passport is everything needed for authentication and authorization accept strategy.

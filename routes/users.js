@@ -1,17 +1,20 @@
 var mongoose = require("mongoose");
-
-mongoose.connect("mongodb://127.0.0.1:27017/mongo");
+var passportLocalMongoose = require('passport-local-mongoose');
+mongoose.connect("mongodb://127.0.0.1:27017/Go");
 
 var userSchema = mongoose.Schema(
   {
+    username : String,
+    password : String,
     email : String,
-    fullname : String,
     profileimage : String,
     likes : {
-     type : Number,
-     defualt : 0
+     type : Array,
+     defualt : [],
     }
   }
 );
+
+userSchema.plugin(passportLocalMongoose);
 
 module.exports = mongoose.model("user",userSchema);
