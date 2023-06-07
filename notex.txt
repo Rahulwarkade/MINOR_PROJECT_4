@@ -292,3 +292,23 @@ second CLASS
    in app.js from line number 15 we have to start writing the code.
 
    inside the app.js serializeUser written users indicates the usersFile of routes folder 
+
+   {route koi bhi ho agr wo isloggedin pass kar gay iska matlab ki app loggedin ho aisi state mein ye pata kran ek dum easy hai ki kon loggedin hai 
+   using:
+   req.session.passport.user}
+
+
+400 => found data is not sufficent,
+404 => not found
+200 => ok
+500 = > internal server error
+
+
+install multer js
+make a form which asks for file and make it multipart/form-data
+setup multer js on index.js file
+    set up diskstorage
+        set up folderpath
+        set up filename
+    set up uploads variable
+make a route on which file will upload

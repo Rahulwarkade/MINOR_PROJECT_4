@@ -61,7 +61,22 @@ router.get("/like/:id",function(req,res){
   //     res.redirect('/feed');
   //   })
   // })
-  
+  userModel.findOne({_id: req.params.id})
+  .then(function(foundUser){
+    var userName = req.session.passport.user;
+    var idx = foundUser.likes.indexOf(userName);
+
+    if(idx===-1){
+      foundUser.likes.push(userName);
+    }
+    else
+    {
+      foundUser.likes.splice(idx,1);
+    }
+    foundUser.save().then(function(){
+      res.redirect('/profile');
+    })
+  })
 })
 
 router.post('/register',function(req,res){
